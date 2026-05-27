@@ -2,6 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
 body {
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  font-family: "SF Pro Text", system-ui, -apple-system, BlinkMacSystemFont,
+    "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", sans-serif;
+  font-size: 17px;
+  line-height: 1.47;
+  letter-spacing: -0.374px;
+  color: #1d1d1f;
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "SF Pro Display", system-ui, -apple-system, BlinkMacSystemFont,
+    "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", sans-serif;
+  font-weight: 600;
+}
+
+button {
+  transition: transform 0.15s ease;
+}
+button:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

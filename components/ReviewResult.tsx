@@ -16,21 +16,25 @@ export function ReviewResult({ text, streaming, maxLength }: Props) {
   const min = Math.floor(maxLength * 0.9);
   const over = visible > maxLength;
   const tooShort = visible < min;
-  const status = over ? "초과" : tooShort ? "부족" : "적정";
-  const statusClass = over
-    ? "bg-red-100 text-red-700"
-    : tooShort
-      ? "bg-amber-100 text-amber-700"
-      : "bg-green-100 text-green-700";
 
   return (
-    <div className="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
-      <div className="mb-3 flex items-center justify-between">
-        <div className="text-sm text-neutral-500">
-          {visible}자 / 최대 {maxLength}자 (권장 {min}~{maxLength})
+    <div className="rounded-apple border border-hairline bg-canvas p-8">
+      <div className="mb-5 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <span className="text-caption text-ink-48">
+            {visible} / 최대 {maxLength}자
+          </span>
           {!streaming && (
-            <span className={`ml-2 rounded-full px-2 py-0.5 text-xs ${statusClass}`}>
-              {status}
+            <span
+              className={`rounded-full px-2.5 py-0.5 text-[11px] font-medium ${
+                over
+                  ? "bg-ink text-white"
+                  : tooShort
+                    ? "bg-canvas-parchment text-ink-80"
+                    : "bg-action/10 text-action"
+              }`}
+            >
+              {over ? "초과" : tooShort ? "부족" : "적정"}
             </span>
           )}
         </div>
@@ -41,14 +45,14 @@ export function ReviewResult({ text, streaming, maxLength }: Props) {
             setCopied(true);
             setTimeout(() => setCopied(false), 1500);
           }}
-          className="rounded-md border border-neutral-300 px-3 py-1 text-xs hover:bg-neutral-100"
+          className="rounded-full border border-hairline px-4 py-1.5 text-caption text-ink hover:bg-canvas-parchment"
         >
           {copied ? "복사됨" : "복사"}
         </button>
       </div>
-      <div className="whitespace-pre-wrap text-sm leading-relaxed text-neutral-800">
+      <div className="whitespace-pre-wrap text-body-apple text-ink">
         {text}
-        {streaming && <span className="animate-pulse">▋</span>}
+        {streaming && <span className="ml-0.5 inline-block animate-pulse text-action">▋</span>}
       </div>
     </div>
   );

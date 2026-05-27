@@ -93,11 +93,13 @@ export default function Page() {
   }
 
   return (
-    <main className="mx-auto max-w-2xl px-4 py-10">
-      <header className="mb-8">
-        <h1 className="text-2xl font-bold">맞춤형 리뷰 생성기</h1>
-        <p className="mt-1 text-sm text-neutral-600">
-          브랜드·제품·별점·글자 수를 입력하면, 실제 후기에서 추출한 패턴을 바탕으로 자연스러운 리뷰를 생성합니다.
+    <main className="mx-auto max-w-[720px] px-6 py-section">
+      <header className="mb-12 text-center">
+        <h1 className="font-display text-display-lg text-ink">맞춤형 리뷰 생성기</h1>
+        <p className="mx-auto mt-4 max-w-md text-body-apple text-ink-80">
+          브랜드와 제품, 별점, 최대 글자 수를 입력하세요.
+          <br />
+          실제 후기에서 추출한 패턴으로 자연스러운 리뷰를 만들어 드립니다.
         </p>
       </header>
 
@@ -105,7 +107,7 @@ export default function Page() {
         <ReviewForm onSubmit={handleSubmit} disabled={streaming} />
 
         {error && (
-          <div className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+          <div className="rounded-apple border border-hairline bg-canvas-parchment p-6 text-body-apple text-ink">
             {error}
           </div>
         )}
